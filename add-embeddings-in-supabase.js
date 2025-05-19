@@ -10,7 +10,9 @@ import { OllamaEmbeddings } from "@langchain/ollama";
  * 1. Load the text from the `scrimba-info.txt` file
  * 2. Split the text into chunks
  * 3. Create embeddings for each chunk
- * 4. Store the embeddings in Supabase
+ * 4. Store the embeddings in Supabase Vector Store
+ *
+ * Doc for Supabase as Vector Store: https://js.langchain.com/docs/integrations/vectorstores/supabase/
  */
 
 const sbApiKey = process.env.SUPABASE_API_KEY;
@@ -28,7 +30,7 @@ const documents = await splitter.createDocuments([text]);
 
 const client = createClient(sbUrl, sbApiKey);
 
-// Not used Open AI embeddings because is not free
+// You can use OpenAI embeddings, but it's not free
 // const embeddings  = new OpenAIEmbeddings({ openAIApiKey, model: "text-embedding-3-small" }),
 
 // Using Ollama embeddings
@@ -40,6 +42,7 @@ const embeddings = new OllamaEmbeddings({
 
 // console.log("embeddings", embeddings);
 
+// Store the embeddings in Supabase with fromDocuments shortcut
 await SupabaseVectorStore.fromDocuments(documents, embeddings, {
   client,
   tableName: "documents",
