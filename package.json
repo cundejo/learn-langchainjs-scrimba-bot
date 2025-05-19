@@ -1,0 +1,23 @@
+{
+  "name": "@cundejo/scrimba-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "embeddings-in-supabase.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "dependencies": {
+    "@langchain/community": "^0.3.43",
+    "@langchain/core": "^0.3.56",
+    "@langchain/ollama": "^0.2.0",
+    "@langchain/openai": "^0.5.10",
+    "@supabase/supabase-js": "^2.49.4",
+    "dotenv": "^16.5.0",
+    "langchain": "^0.3.26"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}

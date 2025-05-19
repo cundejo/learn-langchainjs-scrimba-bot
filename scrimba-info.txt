@@ -1,0 +1,37 @@
+Main Faqs
+
+What programming languages and frameworks does the platform cover?
+Our Frontend Developer Career Path uses HTML, CSS and JavaScript before moving on to React.
+We also have an AI Engineering Path aimed at devs who want to learn about implementing AI solutions.
+
+Does the platform offer project-based learning where I can build real-world projects?
+Yes. All of our projects use real-world examples and all of our learning is project based.
+
+What is the format of the courses?
+Our courses use interactive scrims. A scrim is both a video player and a code editor. When you pause the video, you can edit the code the teach was working on. It’s really cool and you have to try it to believe it.
+
+Does the platform offer live classes or is it self-paced?
+All of our courses are streamed on demand, so it’s self-paced. We do have a weekly Townhall meet up on Discord and Bootcamp students have online meetings at fixed times.
+
+What kind of support is available (forums, mentorship, etc.)?
+Is there a community of learners where I can collaborate and network?
+We love our thriving Discord community! It’s a great place to get help and meet like minded coders! And we moderate it to make sure it’s a friendly and welcoming community for all.
+
+
+Does the platform offer certificates or credentials upon completion of a course or program?
+Yes, when you graduate you get a certificate.
+
+What is the cost of the courses or subscription, and are there any discounts or scholarships available?
+We use purchasing power parity, so please check Scrimba.com for your local price. If you are struggling to pay, please email us at help@scrimba.com and we will do our best to help.
+
+Can I access the platform and its resources offline?
+At the moment, we are an online only platform.
+
+What are the technical requirements to use the platform (system requirements, internet speed, etc.)?
+Scrimba is ultra lightweight so you will probably find you can use it on a low spec PC with mobile internet!
+
+Does the platform offer career assistance or job placement services?
+We have sections of our community and our Frontend Developer Career Path  dedicated to getting you your first job. We advise you on use of repos and portfolio projects, CVs, Resumes, covering letters and LinkedIn. We also have live streams where we interview recruiters.
+
+How frequently is the content updated to keep up with the latest industry trends and technologies?
+We are constantly updating and improving our content!
