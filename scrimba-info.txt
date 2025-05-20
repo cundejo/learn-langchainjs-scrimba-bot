@@ -17,7 +17,6 @@ What kind of support is available (forums, mentorship, etc.)?
 Is there a community of learners where I can collaborate and network?
 We love our thriving Discord community! It’s a great place to get help and meet like minded coders! And we moderate it to make sure it’s a friendly and welcoming community for all.
 
-
 Does the platform offer certificates or credentials upon completion of a course or program?
 Yes, when you graduate you get a certificate.
 
