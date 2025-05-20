@@ -1,6 +1,6 @@
 Main Faqs
 
-What programming languages and frameworks does the platform cover?
+### What programming languages and frameworks does the platform cover?
 Our Frontend Developer Career Path uses HTML, CSS and JavaScript before moving on to React.
 We also have an AI Engineering Path aimed at devs who want to learn about implementing AI solutions.
 

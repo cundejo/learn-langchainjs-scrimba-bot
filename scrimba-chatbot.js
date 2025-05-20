@@ -10,21 +10,18 @@ import { logger } from "./utils.js";
 
 const VECTOR_STORE_K = 2;
 const conversationHistory = []; // Format: ['User: ', 'AI: ', ...]
-
 const llm = models.openai();
 
 /**
- * respondQuestion receives a question from the user and does the following:
+ * Receives a question from the user and does the following:
  * 1. Converts the question to a standalone question
  * 3. Retrieves the most relevant documents from the vector store based on the standalone question.
  *    You can control the number of documents retrieved by changing VECTOR_STORE_K
  * 4. Past to the LLM the original user question, the standalone question and
  *    the retrieved documents to get a proper answer
  */
-const respondQuestion = async (question) => {
+const answerQuestion = async (question) => {
   const conversationHistoryText = conversationHistory.join("\n");
-
-  console.log("conversationHistoryText", typeof conversationHistoryText);
 
   // Convert a question to a standalone question.
   const standaloneQuestionPrompt = PromptTemplate.fromTemplate(`
@@ -33,11 +30,6 @@ const respondQuestion = async (question) => {
   question: "{question}"
   conversation history: "{conversationHistory}"
   `);
-
-  //   const standaloneQuestionPrompt = PromptTemplate.fromTemplate(`
-  // Given a question, convert the question to a standalone question.
-  // Question: "{question}"
-  // `);
 
   const standaloneQuestionChain = RunnableSequence.from([
     {
@@ -62,7 +54,13 @@ const respondQuestion = async (question) => {
   // Past to the LLM the original user question, the conversation history,
   // and the retrieved documents as context to get a proper answer.
   const answerPrompt = PromptTemplate.fromTemplate(`
-You are a helpful and enthusiastic support bot who can answer a given question about Scrimba based on the context provided and the conversation history. Try to find the answer in the context. If the answer is not given in the context, find the answer in the conversation history if possible. If you really don't know the answer, say "I'm sorry, I don't know the answer to that." And direct the questioner to email help@scrimba.com. Don't try to make up an answer. Always speak as if you were chatting to a friend. 
+You are a helpful and enthusiastic support bot who can answer a given question 
+about Scrimba based on the context provided and the conversation history. 
+Try to find the answer in the context. If the answer is not given in the context, 
+find the answer in the conversation history if possible. 
+If you really don't know the answer, say "I'm sorry, I don't know the answer to that.",
+and direct the questioner to email help@scrimba.com. Don't try to make up an answer. 
+Always speak as if you were chatting to a friend. 
 
 question: "{question}"
 context: "{context}"
@@ -81,7 +79,7 @@ conversation history: "{conversationHistory}"
     new StringOutputParser(),
   ]);
 
-  // Invoke the chain
+  // Create the final chain and invoke it
   const chain = RunnableSequence.from([
     {
       standaloneQuestion: standaloneQuestionChain,
@@ -124,7 +122,7 @@ const main = async () => {
   try {
     while (true) {
       const userInput = await getUserInput();
-      const answer = await respondQuestion(userInput);
+      const answer = await answerQuestion(userInput);
       conversationHistory.push(`User: ${userInput}`);
       conversationHistory.push(`Bot: ${answer}`);
       console.log(chalk.green(answer));
@@ -147,4 +145,3 @@ main().catch((error) => {
 // Hello, I'm Oliver. I'm anxious about starting to learn in Scrimba and have a couple of questions.
 // First of all, what can I learn in Scrimba?
 // Do you have some community where I can go and ask questions?
-//

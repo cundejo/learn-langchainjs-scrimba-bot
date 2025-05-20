@@ -40,8 +40,6 @@ const embeddings = new OllamaEmbeddings({
   baseUrl: "http://localhost:11434", // Default Ollama URL
 });
 
-// console.log("embeddings", embeddings);
-
 // Store the embeddings in Supabase with fromDocuments shortcut
 await SupabaseVectorStore.fromDocuments(documents, embeddings, {
   client,

@@ -3,6 +3,7 @@ import { PromptTemplate } from "@langchain/core/prompts";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { models } from "./models.js";
+import { logger } from "./utils.js";
 
 /**
  * This is an example on how to use Runnable.
@@ -18,12 +19,13 @@ import { models } from "./models.js";
 
 const llm = models.openai();
 
-const grammarTemplate = "Fix the grammar errors in the following text: {text}";
-const grammarPrompt = PromptTemplate.fromTemplate(grammarTemplate);
+const grammarPrompt = PromptTemplate.fromTemplate(
+  "Fix the grammar errors in the following text: {text}",
+);
 
-const translationTemplate =
-  "Translate the following text to {language}: {text}";
-const translationPrompt = PromptTemplate.fromTemplate(translationTemplate);
+const translationPrompt = PromptTemplate.fromTemplate(
+  "Translate the following text to {language}: {text}",
+);
 
 const grammarChain = RunnableSequence.from([
   grammarPrompt,
@@ -39,6 +41,7 @@ const translationChain = RunnableSequence.from([
 ]);
 
 const chain = RunnableSequence.from([
+  // logger,
   {
     text: grammarChain,
     language: (input) => input.language,
