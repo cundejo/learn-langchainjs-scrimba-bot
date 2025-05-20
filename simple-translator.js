@@ -16,7 +16,6 @@ import { models } from "./models.js";
  *  - https://js.langchain.com/docs/concepts/runnables
  */
 
-const openAIApiKey = process.env.OPENAI_API_KEY;
 const llm = models.openai();
 
 const grammarTemplate = "Fix the grammar errors in the following text: {text}";
@@ -28,11 +27,7 @@ const translationPrompt = PromptTemplate.fromTemplate(translationTemplate);
 
 const grammarChain = RunnableSequence.from([
   grammarPrompt,
-  // You can add any function in the middle of the chain
-  // (input) => {
-  //   console.log("input", input);
-  //   return input;
-  // },
+  // logger,
   llm,
   new StringOutputParser(),
 ]);
@@ -48,10 +43,7 @@ const chain = RunnableSequence.from([
     text: grammarChain,
     language: (input) => input.language,
   },
-  // (input) => {
-  //   console.log("input", input);
-  //   return input;
-  // },
+  // logger,
   translationChain,
 ]);
 
