@@ -9,7 +9,10 @@ export const vectorStore = () => {
     baseUrl: "http://localhost:11434",
   });
 
-  const supabaseClient = createClient(sbUrl, sbApiKey);
+  const supabaseClient = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_API_KEY,
+  );
 
   const vectorStore = new SupabaseVectorStore(embeddings, {
     client: supabaseClient,
@@ -24,11 +27,11 @@ export const vectorStore = () => {
   };
 };
 
-const sbApiKey = process.env.SUPABASE_API_KEY;
-const sbUrl = process.env.SUPABASE_URL;
-
 //Testing the function
-// const documents = await vectorStore("What is the price of the course?");
+// const documents = await vectorStore().search(
+//   "What is the price of the course?",
+//   1,
+// );
 // for (const doc of documents) {
 //   console.log(`* ${doc.pageContent} [${JSON.stringify(doc.metadata, null)}]`);
 // }
