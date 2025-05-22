@@ -8,6 +8,9 @@ import { models } from "./models.js";
 import { vectorStore } from "./vector-store.js";
 import { logger } from "./utils.js";
 
+// Setting the project name for LangSmith
+process.env.LANGCHAIN_PROJECT = "scrimba-bot";
+
 const VECTOR_STORE_K = 2;
 const conversationHistory = []; // Format: ['User: ', 'AI: ', ...]
 const llm = models.openai();

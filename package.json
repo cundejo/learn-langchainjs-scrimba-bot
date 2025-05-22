@@ -10,7 +10,7 @@
   "private": true,
   "dependencies": {
     "@langchain/community": "^0.3.43",
-    "@langchain/core": "^0.3.56",
+    "@langchain/core": "0.3.57",
     "@langchain/ollama": "^0.2.0",
     "@langchain/openai": "^0.5.10",
     "@supabase/supabase-js": "^2.49.4",

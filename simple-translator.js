@@ -5,6 +5,9 @@ import { StringOutputParser } from "@langchain/core/output_parsers";
 import { models } from "./models.js";
 import { logger } from "./utils.js";
 
+// Setting the project name for LangSmith
+process.env.LANGCHAIN_PROJECT = "simple-translator";
+
 /**
  * This is an example on how to use Runnable.
  *
